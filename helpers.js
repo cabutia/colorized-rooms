@@ -37,7 +37,19 @@ module.exports.isDoor = (m, x, y) =>
  */
 module.exports.isEmpty = (m, x, y) => m[y][x] === ' ';
 
+/**
+ * @type {number} The current room index
+ */
 let roomIdx = 0;
+
+/**
+ * Determines which room corresponds to the current cell in order to
+ * continue filling that room, or start with another one.
+ * @param {array} m The matrix
+ * @param {number} x X coordinate
+ * @param {number} y Y Coordinate
+ * @return {string} The room id
+ */
 module.exports.findTargetRoom = (m, x, y) => {
     const left = m[y][x - 1];
     const top = m[y - 1][x];
@@ -46,6 +58,11 @@ module.exports.findTargetRoom = (m, x, y) => {
     return roomIdx++;
 }
 
+/**
+ * Gets the color and the content to be printed for the current cell.
+ * @param {string|number} cell The current cell content
+ * @returns {string} The colorized string for this cell
+ */
 module.exports.getColor = (cell) => {
     switch (true) {
         case typeof cell === 'number':
