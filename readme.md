@@ -4,7 +4,7 @@
 
 In order to execute this simple script, you just have to run the following command:
 
-```js
+```shell
 node main.js
 ```
 
